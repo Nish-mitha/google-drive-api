@@ -1,0 +1,13 @@
+{
+    "type": "service_account",
+    "project_id": "video-extractor-414317",
+    "private_key_id": "ddaa7bbd9d340bde4a25e3c7ebaaaee25a03e10e",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDVHEMaOd7PV+Kn\nWqpm3Zxzz7LwcAQMytdtA6F+23lRBzX3thGfiXJc0M6+wFumT/4W66IsjueNEBdE\nka91zbezmQcXodQDJxkq1DMbm0Uk2xh75eqUKxxxiI8MNerUeSoPxTgSUzkL4DI+\niXkF8LdlokuTDGm1N3m2oJFu/vDR1wv7JRXJb7XJ265qSxcMcIUjUrVQHkD/V8eD\nyxiNIgcCYnv0IOJD24lREBzCyYzwBBqwrqdmzTVgTbM7O1h/AonYRLUlygPBc1UU\nQBpoxup+rU0uBU9n7CfRQsj81/XTm9cSiHh6WT3BwFXuLTq9SgfrKabouZejiexi\nSu/DFDJTAgMBAAECggEAQnHc5CTt+OTUeMx2e7sV6C/2gSvTv29RCp7KsARbB24B\noBnG1eCjZRf/lg7gpHKlbN0MA+uMe3lsX8cylz7MS3VndjFRKqh6mtVtl+pp/QtI\nz3yIjqkAZc+nli2LabLbb+5URLZo/3BoCgKP1s/ORqR6/r6siMFitBPNNHfNewcJ\nEOAkfBIWd2NjZ4QKsvyzrn53bvSze6oFqO7toXab4MVWHq/McbJavfX9RtWQKRip\n7iIvYVPD/EF9KYXmkMtFnAVhO0PGUGc0PlZAzGcPo+wBELOzEj/Et0bGbm9CxKD8\nucbN+D+98Sy2BofBtFJ0fLLHsIaxrB//v7A6jIhATQKBgQD8ZnVF2QIHmAgNaL+c\n7scckXVqzUDiMgMUo2wAcNmP8Cq360pWtT8WbQSpA4Kgc7mZL2JfecCxhNq4L/Wn\nAdTmi8BWhmgSA1h1mOaAWd3xKjApOKXMC2YGxDReFmkRQc2A5FHrJWXy8eJIUrt4\nl2rzzB8qaJNUmbtxYMvqlrMx7wKBgQDYJlo2odYqzyK62N81S/fXN/PBZp4fCLJj\nfyy3bG5IwuKRQ0DCeb9dyF3S3Ydrl0K+gjRwbIyO4cnyp/Vdtw/Nd0oQuaRjT4wn\nQbzs9P8pSgT+KfIGC9lZiPGn6tQITu6mOkvg8JN457nUtmbssycWlmIzCt9EVlc3\nsCsFMFpZ3QKBgBvy2H+QhRoEKrgZZkZhZmjybncSHWIuuYqaggYWePDoXkKZalTp\nov+/uKliex97UQz2Y0VBPSYrGPEWVnRUzpds2DJ8lZ+RAUWcVcHWsa3Xxxd5b1qF\n1JlhNo9Imf/QMopYPf302TIquKzbhGjZE33Fl5nhlJbkow3t8waaA2O/AoGBAL5k\nMeyTavF0WNQaeaoZi2qQh25gtIEDiRZpC/tZUF9ZAncPtThYQz8ZYcN+jG0x5IGo\ncQZiJwEoU1khpthwikPigmPvEaTEieB+YCqctzEoWPOEAQJgZ4gdPzc4eqIC3OWg\nzfuKDWxfOOnr7Qcr2w9jUYZCWl14bATKcWp1p/AlAoGAEZbzgel5xNJvp8uwmWBx\nkRM5RovJCt0hE+8uIaDMJGn/neXykTRLs0jPwmkEVhhsvd+led7w/dyABfxOGLSU\nmL30NDqwlws8omBK1d1z603TanJsjTKAjf4nKKV6cbRQUjpdg5KuFPFb9MKdkMw0\niDqeVG98qS+vy2MdH1RVH7k=\n-----END PRIVATE KEY-----\n",
+    "client_email": "video-extractor-api@video-extractor-414317.iam.gserviceaccount.com",
+    "client_id": "100368587060124638762",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/video-extractor-api%40video-extractor-414317.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
+}

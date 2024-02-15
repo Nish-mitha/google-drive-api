@@ -17,4 +17,8 @@ export class DatabaseService {
   async create(entity: VideoStats): Promise<VideoStats> {
     return this.yourEntityRepository.save(entity);
   }
+
+  async fetchByFileId(fileId: string, type: string = "DOWNLOAD"): Promise<VideoStats[]> { 
+    return this.yourEntityRepository.find({ where: { fileId: fileId, type: type } });
+  }
 }
