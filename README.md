@@ -13,7 +13,7 @@ This project provides APIs to interact with Google Drive for downloading and upl
 
 This project is hosted live and accessible for use. You can interact with the Google Drive Video Download & Upload APIs by visiting the following link:
 
-[Live Demo](https://example.com/) 🚀
+[Live Demo](https://google-drive-api-e228.onrender.com/api-docs) 🚀
 
 ### 📝 Usage Instructions
 
@@ -58,8 +58,56 @@ Here's a tabular representation of the test cases covered for the Google Drive V
 
 These test cases cover various scenarios to ensure the functionality, reliability, and error handling of the Google Drive Video Download & Upload API.
 
+### ✅ Test Case 1: Video download and Upload Task has been initiated.
 
-Use the below mentioned APIs to test the use cases:
+**Test URL:** https://google-drive-api-e228.onrender.com/videos/download/1thGYHGVw71UPqNeQ4gvq54ARwPb7akB2/1LgzxlGpkC5Fg-f-KL0bvucgbIVz8rkXk
+<br>
+**Response:** {
+                "statusCode": 200,
+                "message": "Video download and Upload Task has been initiated."
+              }
+
+
+### ✅ Test Case 2: Not Found
+
+**Test URL:** https://google-drive-api-e228.onrender.com/videos/download/1thGYHGVw71UPqNeQ4gvq4ARwPb7akB2/1LgzxlGpkC5Fg-f-KL0bvucgbIVz8rkXk
+<br>
+**Response:** {
+  "statusCode": 404,
+  "message": "File not found: 1thGYHGVw71UPqNeQ4gvq4ARwPb7akB2."
+}
+
+
+### ✅ Test Case 3: API Service is under maintenance
+
+**Test URL:** https://google-drive-api-e228.onrender.com/videos/download/1thGYHGVw71UPqNeQ4gvq54AwPb7akB2/1LgzxlGpkC5Fg-f-KL0bvucgbIVz8rkXk
+<br>
+**Response:** {
+                "statusCode": 503,
+                "message": "API is under maintenance, Please try again after some time"
+              }
+
+### ✅ Test Case 4: API Service is under maintenance
+
+**Test URL:** https://google-drive-api-e228.onrender.com/videos/download/1thGYHGVw71UPqNeQ4gvq54AwPb7akB2/1LgzxlGpkC5Fg-f-KL0bvucgbIVz8rkXk
+<br>
+**Response:** {
+                "statusCode": 503,
+                "message": "API is under maintenance, Please try again after some time"
+              }
+
+
+### ✅ Test Case 5: API Service is under maintenance
+
+**Test URL:** https://google-drive-api-e228.onrender.com/videos/download/1thGYHGVw71UPqNeQ4gvq54AwPb7akB2/1LgzxlGpkC5Fg-f-KL0bvucgbIVz8rkXk
+<br>
+**Response:** {
+                "statusCode": 503,
+                "message": "API is under maintenance, Please try again after some time"
+              }
+
+
+### ❗ Use the below mentioned APIs to test the use cases.
 
 
 💻 Local Setup

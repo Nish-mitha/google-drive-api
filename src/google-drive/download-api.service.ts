@@ -41,7 +41,7 @@ export class DownloadApiService {
   private async processDownloadedFile(fileData: any, fileLength: number, fileId: string, destinationFolderId: string) {
     const fileStream = fs.createWriteStream('video.mp4');
     fileData.pipe(fileStream);
-    this.storeInPostgreSQL('./video.mp4', fileId, fileLength, destinationFolderId);
+    this.storeInPostgreSQL('video.mp4', fileId, fileLength, destinationFolderId);
   }
 
   async storeInPostgreSQL(filePath: string, fileId: string, fileLength: number, destinationFolderId: string) {
