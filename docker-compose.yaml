@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+    google-drive-api-service:
+        build:
+            context: .
+            dockerfile: docker/Dockerfile
+        ports:
+        - "3000:3000"
+        env_file:
+            - .env/common.env
+        volumes:
+        - ./src:/home/user/src
+        - ./node_modules:/home/user/node_modules
+        command: npm run start:dev
+            
