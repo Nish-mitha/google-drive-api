@@ -3,13 +3,13 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 @Entity({name: "video_stats" })
 export class VideoStats {
   @PrimaryGeneratedColumn()
-  id: number;
+  id?: number;
 
   @Column()
   fileId: string;
 
   @Column()
-  fileContent: boolean;
+  fileContent: string;
 
   @Column()
   status: string;

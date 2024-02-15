@@ -8,32 +8,31 @@ import { SWAGGER_DESCRIPTION } from './common/constant';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
-  /**
-   * Swagger Documentation
-   */
-  const defaultEnv = process.env.INSTANCE_URL || 'http://localhost:3000/';
-  const localEnv = 'http://localhost:3000/';
-  const prodEnv = 'https://google-drive-api-e228.onrender.com/';
-
-  const options = new DocumentBuilder()
-  .setTitle('Google Drive Video Download & Upload APIs')
-  .setDescription(SWAGGER_DESCRIPTION)
-  .setVersion('1.0')
-  .addServer(defaultEnv, 'Default environment')
-  .addServer(localEnv, 'Local environment')
-  .addServer(prodEnv, 'Production environment')
-  .build();
-
-  const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup('api-docs', app, document);
-
   /**
    * Exception Handler
    */
   app.useGlobalFilters(new HttpExceptionFilter());
   app.useGlobalInterceptors(new MaintenanceInterceptor());
   app.useGlobalInterceptors(new LoggerInterceptor());
+
+    /**
+   * Swagger Documentation
+   */
+    const defaultEnv = process.env.INSTANCE_URL || 'http://localhost:3000/';
+    const localEnv = 'http://localhost:3000/';
+    const prodEnv = 'https://google-drive-api-e228.onrender.com/';
+  
+    const options = new DocumentBuilder()
+    .setTitle('Google Drive Video Download & Upload APIs')
+    .setDescription(SWAGGER_DESCRIPTION)
+    .setVersion('1.0')
+    .addServer(defaultEnv, 'Default environment')
+    .addServer(localEnv, 'Local environment')
+    .addServer(prodEnv, 'Production environment')
+    .build();
+  
+    const document = SwaggerModule.createDocument(app, options);
+    SwaggerModule.setup('api-docs', app, document);
 
   await app.listen(3000);
 }
