@@ -15,8 +15,11 @@ async function bootstrap() {
   .setTitle('Google Drive Video Download & Upload APIs')
   .setDescription('Google Drive Video Download & Upload APIs enable seamless integration for retrieving and uploading video content to Google Drive, enhancing application capabilities.')
   .setVersion('1.0')
+  .addServer(process.env.INSTANCE_URL, 'Default environment')
   .addServer('http://localhost:3000/', 'Local environment')
+  .addServer('https://google-drive-api-e228.onrender.com/', 'Production environment')
   .build();
+  
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api-docs', app, document);
 
