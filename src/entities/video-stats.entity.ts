@@ -9,8 +9,11 @@ export class VideoStats {
   fileId: string;
 
   @Column()
+  fileLength: number;
+
+  @Column()
   fileContent: string;
 
   @Column()
-  status: string;
+  type: string;
 }

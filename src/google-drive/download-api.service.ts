@@ -38,10 +38,10 @@ export class DownloadApiService {
   private async processDownloadedFile(fileData: any, fileLength: number, fileId: string, destinationFolderId: string) {
     const fileStream = fs.createWriteStream('video.mp4');
     fileData.pipe(fileStream);
-    this.storeInPostgreSQL('video.mp4', fileId);
+    this.storeInPostgreSQL('./video.mp4', fileId, fileLength);
   }
 
-  async storeInPostgreSQL(filePath: string, fileId: string) {
+  async storeInPostgreSQL(filePath: string, fileId: string, fileLength: number) {
     try {
       const fileSize = (await fs.promises.stat(filePath)).size;
       let offset = 0;
@@ -49,14 +49,16 @@ export class DownloadApiService {
         const chunk = await this.readChunk(filePath, offset, offset + this.chunkSize - 1);
         await this.databaseService.create({
           fileId: fileId,
-          fileContent: "string",
-          status: "DONE"
+          fileContent: chunk.toString('base64'),
+          fileLength: fileLength,
+          type: "DOWNLOAD"
         });
         offset += this.chunkSize;
       }
-      console.log('File stored in PostgreSQL in chunks successfully');
+      this.logger.log('File stored in PostgreSQL in chunks successfully');
     } catch (error) {
-      console.error('Error storing file in PostgreSQL:', error);
+      this.logger.error('Error storing file in PostgreSQL:', error);
+      throw new HttpException("Something went wrong.", HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
 
