@@ -116,7 +116,7 @@ These test cases cover various scenarios to ensure the functionality, reliabilit
                 "statusCode": 500,
                 "message": "Unexpected behavior, Please try again after some time"
                 }
-### ❗ Use the below mentioned APIs to test the use cases.
+### ❗ Use the above mentioned APIs to test the use cases.
 
 
 💻 Local Setup

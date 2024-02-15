@@ -1,5 +1,6 @@
 import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
 import * as fs from 'fs';
+import * as path from 'path';
 import { GoogleDriveService } from './google-drive.service';
 import { DatabaseService } from 'src/database/database.service';
 
@@ -39,9 +40,14 @@ export class DownloadApiService {
   }
   
   private async processDownloadedFile(fileData: any, fileLength: number, fileId: string, destinationFolderId: string) {
-    const fileStream = fs.createWriteStream('video.mp4');
+    const folderPath = './src/assets/';
+    const filePath = path.join(folderPath, 'video.mp4');
+    const fileStream = fs.createWriteStream(filePath);
     fileData.pipe(fileStream);
-    this.storeInPostgreSQL('video.mp4', fileId, fileLength, destinationFolderId);
+    
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+    
+    this.storeInPostgreSQL(filePath, fileId, fileLength, destinationFolderId);
   }
 
   async storeInPostgreSQL(filePath: string, fileId: string, fileLength: number, destinationFolderId: string) {
