@@ -4,6 +4,7 @@ import { HttpExceptionFilter } from './filters/http-exception.filter';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { MaintenanceInterceptor } from './interceptors/maintenance.interceptor';
 import { LoggerInterceptor } from './interceptors/logger.interceptor';
+import { SWAGGER_DESCRIPTION } from './common/constant';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -14,10 +15,10 @@ async function bootstrap() {
   const defaultEnv = process.env.INSTANCE_URL || 'http://localhost:3000/';
   const localEnv = 'http://localhost:3000/';
   const prodEnv = 'https://google-drive-api-e228.onrender.com/';
-  
+
   const options = new DocumentBuilder()
   .setTitle('Google Drive Video Download & Upload APIs')
-  .setDescription('Google Drive Video Download & Upload APIs enable seamless integration for retrieving and uploading video content to Google Drive, enhancing application capabilities.')
+  .setDescription(SWAGGER_DESCRIPTION)
   .setVersion('1.0')
   .addServer(defaultEnv, 'Default environment')
   .addServer(localEnv, 'Local environment')
