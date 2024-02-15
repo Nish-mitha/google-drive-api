@@ -60,8 +60,7 @@ These test cases cover various scenarios to ensure the functionality, reliabilit
 
 ### ✅ Test Case 1: Video download and Upload Task has been initiated.
 
-**Test URL:** https://google-drive-api-e228.onrender.com/videos/download/1thGYHGVw71UPqNeQ4gvq54ARwPb7akB2/1LgzxlGpkC5Fg-f-KL0bvucgbIVz8rkXk
-<br>
+**Test URL:** https://google-drive-api-e228.onrender.com/videos/download/1thGYHGVw71UPqNeQ4gvq54ARwPb7akB2/1LgzxlGpkC5Fg-f-KL0bvucgbIVz8rkXk <br>
 **Response:** {
                 "statusCode": 200,
                 "message": "Video download and Upload Task has been initiated."
@@ -70,8 +69,7 @@ These test cases cover various scenarios to ensure the functionality, reliabilit
 
 ### ✅ Test Case 2: Not Found
 
-**Test URL:** https://google-drive-api-e228.onrender.com/videos/download/1thGYHGVw71UPqNeQ4gvq4ARwPb7akB2/1LgzxlGpkC5Fg-f-KL0bvucgbIVz8rkXk
-<br>
+**Test URL:** https://google-drive-api-e228.onrender.com/videos/download/1thGYHGVw71UPqNeQ4gvq4ARwPb7akB2/1LgzxlGpkC5Fg-f-KL0bvucgbIVz8rkXk <br>
 **Response:** {
   "statusCode": 404,
   "message": "File not found: 1thGYHGVw71UPqNeQ4gvq4ARwPb7akB2."
@@ -80,33 +78,44 @@ These test cases cover various scenarios to ensure the functionality, reliabilit
 
 ### ✅ Test Case 3: API Service is under maintenance
 
-**Test URL:** https://google-drive-api-e228.onrender.com/videos/download/1thGYHGVw71UPqNeQ4gvq54AwPb7akB2/1LgzxlGpkC5Fg-f-KL0bvucgbIVz8rkXk
-<br>
+**Test URL:** https://google-drive-api-e228.onrender.com/videos/download/1thGYHGVw71UPqNeQ4gvq54AwPb7akB2/1LgzxlGpkC5Fg-f-KL0bvucgbIVz8rkXk <br>
 **Response:** {
                 "statusCode": 503,
                 "message": "API is under maintenance, Please try again after some time"
               }
 
-### ✅ Test Case 4: API Service is under maintenance
+### ✅ Test Case 4: Monitor Download Status
 
-**Test URL:** https://google-drive-api-e228.onrender.com/videos/download/1thGYHGVw71UPqNeQ4gvq54AwPb7akB2/1LgzxlGpkC5Fg-f-KL0bvucgbIVz8rkXk
-<br>
+**Test URL:** http://localhost:3000/videos/downloadStatus/1eZal_hx07sBIouOCy8kVC9hrNgWwh9a_<br>
 **Response:** {
-                "statusCode": 503,
-                "message": "API is under maintenance, Please try again after some time"
-              }
+            "statusCode": 200,
+            "message": "34% download is completed for 1eZal_hx07sBIouOCy8kVC9hrNgWwh9a_."
+            }
 
 
-### ✅ Test Case 5: API Service is under maintenance
+### ✅ Test Case 5: Monitor Upload Status
 
-**Test URL:** https://google-drive-api-e228.onrender.com/videos/download/1thGYHGVw71UPqNeQ4gvq54AwPb7akB2/1LgzxlGpkC5Fg-f-KL0bvucgbIVz8rkXk
-<br>
+**Test URL:** http://localhost:3000/videos/uploadStatus/1eZal_hx07sBIouOCy8kVC9hrNgWwh9a_<br>
 **Response:** {
-                "statusCode": 503,
-                "message": "API is under maintenance, Please try again after some time"
-              }
+                "statusCode": 200,
+                "message": "34% upload is completed for 1eZal_hx07sBIouOCy8kVC9hrNgWwh9a_."
+            }
 
+### ✅ Test Case 6: Not Requested for Download
 
+**Test URL:** http://localhost:3000/videos/uploadStatus/1FzEgMBnHJtuCOcj33cwoPFf1sB1dx1Ck
+              http://localhost:3000/videos/downloadStatus/1FzEgMBnHJtuCOcj33cwoPFf1sB1dx1Ck <br>
+**Response:** {
+                "statusCode": 200,
+                "message": "1FzEgMBnHJtuCOcj33cwoPFf1sB1dx1Ck is not requested for download."
+                }
+
+### ✅ Test Case 6: Internal Server Error
+
+**Response:** {
+                "statusCode": 500,
+                "message": "Unexpected behavior, Please try again after some time"
+                }
 ### ❗ Use the below mentioned APIs to test the use cases.
 
 

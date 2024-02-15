@@ -21,7 +21,7 @@ export class DownloadStatusService {
 
       return {
         statusCode: HttpStatus.OK,
-        message: `${percentage}% download is completed for ${fileId}.`,
+        message: `${percentage.toString().slice(0,2)}% download is completed for ${fileId}.`,
       }
     } catch(err) {
       throw new HttpException("Something went wrong, Please check your network.", HttpStatus.INTERNAL_SERVER_ERROR);
