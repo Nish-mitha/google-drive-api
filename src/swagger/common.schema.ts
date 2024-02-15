@@ -23,6 +23,27 @@ export const commonResponseSchema = {
             },
           },
         },
+        [HttpStatus.NOT_FOUND]: {
+          status: 404,
+          description: 'Not Found',
+          content: {
+            'application/json': {
+              schema: {
+                type: 'object',
+                properties: {
+                  statusCode: {
+                    type: 'number',
+                    example: 404,
+                  },
+                  message: {
+                    type: 'string',
+                    example: 'Not Found',
+                  },
+                },
+              },
+            },
+          },
+        },
         [HttpStatus.INTERNAL_SERVER_ERROR]: {
           status: 500,
           description: 'Something went wrong',

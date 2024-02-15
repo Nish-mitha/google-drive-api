@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3.8"
 
 services:
     google-drive-api-service:
@@ -13,4 +13,3 @@ services:
         - ./src:/home/user/src
         - ./node_modules:/home/user/node_modules
         command: npm run start:dev
-            
