@@ -1,4 +1,4 @@
-import { HttpException, Injectable, Logger } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
 import * as fs from 'fs';
 import { GoogleDriveService } from './google-drive.service';
 
@@ -11,8 +11,6 @@ export class DownloadApiService {
 
   async downloadVideo(fileId: string, destinationFolderId: string): Promise<void> {
     const drive = this.googleDriveService.initialize();
-    const fileStream = fs.createWriteStream('file.mp4');
-
     try {
       /**
        * Check if the file is already present in the destination folder
@@ -24,27 +22,19 @@ export class DownloadApiService {
         },
         { responseType: 'stream' },
       );
-
-      return await new Promise<void>((resolve, reject) => {
-        response.data
-          .on('end', () => {
-            this.logger.log('File extracted successfully');
-            resolve();
-          })
-          .on('error', (err) => {
-            this.logger.error('Error downloading file', err);
-            reject(err);
-          })
-          .pipe(fileStream);
-      });
+      this.processDownloadedFile(response.data, response.headers['content-length'])
+      
     } catch(err) {
-      console.log(err)
-      const errorRes = JSON.parse(err.response.data);
-      throw new HttpException(errorRes.error.message, errorRes.error.code);
+      if(err.response?.data) {
+        const errorRes = JSON.parse(err.response.data);
+        throw new HttpException(errorRes.error.message, errorRes.error.code);
+      }
+      throw new HttpException("Something went wrong, Please check your network.", HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
   
-  private async processDownloadedFile() {
-
+  private async processDownloadedFile(fileData: any, fileLength: number) {
+    const fileStream = fs.createWriteStream('file.mp4');
+    fileData.pipe(fileStream);
   }
 }
