@@ -50,7 +50,7 @@ export class DownloadApiService {
         await this.databaseService.create({
           fileId: fileId,
           fileContent: chunk.toString('base64'),
-          fileLength: fileLength,
+          fileLength: fileSize,
           type: "DOWNLOAD"
         });
         offset += this.chunkSize;

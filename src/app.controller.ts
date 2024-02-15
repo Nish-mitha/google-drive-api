@@ -6,6 +6,8 @@ import { downloadStatusSchema } from './swagger/download-status.schema';
 import { uploadStatusSchema } from './swagger/upload-status.schema';
 import { commonResponseSchema } from './swagger/common.schema';
 import { DownloadApiService } from './google-drive/download-api.service';
+import { DownloadStatusService } from './google-drive/download-status.service';
+import { UploadStatusService } from './google-drive/upload-status.service';
 
 @ApiResponse(commonResponseSchema.responses[401])
 @ApiResponse(commonResponseSchema.responses[404])
@@ -13,7 +15,10 @@ import { DownloadApiService } from './google-drive/download-api.service';
 @ApiResponse(commonResponseSchema.responses[503])
 @Controller('videos')
 export class AppController {
-  constructor(private readonly downloadApiService: DownloadApiService) {}
+  constructor(
+    private readonly downloadApiService: DownloadApiService,
+    private readonly downloadStatusService: DownloadStatusService,
+    private readonly uploadStatusService: UploadStatusService) {}
 
   /**
    * Route to handle download and upload of video file
@@ -38,12 +43,11 @@ export class AppController {
 
   @ApiTags(downloadStatusSchema.tags)
   @ApiParam(downloadStatusSchema.parameters[0])
-  @ApiParam(downloadStatusSchema.parameters[1])
   @ApiResponse(downloadStatusSchema.responses[200])
   @ApiResponse(downloadStatusSchema.responses[400])
-  @Get('downloadStatus/:fileId/:destinationFolderId')
-  async checkDownloadFileStatus(@Param('fileId') fileId: string, @Param('destinationFolderId') destinationFolderId: string): Promise<void> {
-    // return await this.googleDriveService.checkFileStatus(fileId);
+  @Get('downloadStatus/:fileId')
+  async checkDownloadFileStatus(@Param('fileId') fileId: string): Promise<ResponseDTO> {
+    return await this.downloadStatusService.getDownloadStatus(fileId);
   }
 
 
@@ -52,7 +56,7 @@ export class AppController {
   @ApiResponse(uploadStatusSchema.responses[200])
   @ApiResponse(uploadStatusSchema.responses[400])
   @Get('uploadStatus/:fileId')
-  async checkUploadFileStatus(@Param('fileId') fileId: string): Promise<void> {
-    // return await this.googleDriveService.checkFileStatus(fileId);
+  async checkUploadFileStatus(@Param('fileId') fileId: string): Promise<ResponseDTO> {
+    return await this.uploadStatusService.getUploadStatus(fileId);
   }
 }

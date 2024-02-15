@@ -10,24 +10,11 @@ export class DatabaseService {
     private readonly yourEntityRepository: Repository<VideoStats>,
   ) {}
 
-  async findAll(): Promise<VideoStats[]> {
-    return this.yourEntityRepository.find();
+  async countBy(fileId: string, type: string = "DOWNLOAD"): Promise<[VideoStats[], number]> {
+    return this.yourEntityRepository.findAndCountBy({ fileId: fileId, type: type});
   }
-
-  // async findOne(id: number): Promise<VideoStats> {
-  //   return this.yourEntityRepository.findOne(id);
-  // }
 
   async create(entity: VideoStats): Promise<VideoStats> {
     return this.yourEntityRepository.save(entity);
-  }
-
-  // async update(id: number, entity: VideoStats): Promise<VideoStats> {
-  //   await this.yourEntityRepository.update(id, entity);
-  //   return this.findOne(id);
-  // }
-
-  async delete(id: number): Promise<void> {
-    await this.yourEntityRepository.delete(id);
   }
 }

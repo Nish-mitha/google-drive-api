@@ -4,6 +4,8 @@ import { GoogleDriveService } from './google-drive/google-drive.service';
 import { DownloadApiService } from './google-drive/download-api.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DatabaseModule } from './database/database.module';
+import { DownloadStatusService } from './google-drive/download-status.service';
+import { UploadStatusService } from './google-drive/upload-status.service';
 
 @Module({
   imports: [
@@ -17,6 +19,6 @@ import { DatabaseModule } from './database/database.module';
     DatabaseModule
   ],
   controllers: [AppController],
-  providers: [GoogleDriveService, DownloadApiService],
+  providers: [GoogleDriveService, DownloadApiService, DownloadStatusService, UploadStatusService],
 })
 export class AppModule {}
