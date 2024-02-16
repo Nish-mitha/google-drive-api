@@ -10,6 +10,6 @@ export const SWAGGER_DESCRIPTION = "<h5>Google Drive Video Download & Upload API
                                     <h6>1. 1thGYHGVw71UPqNeQ4gvq54ARwPb7akB2 (17KB)</h6>\
                                     <h6>2. 1Av4RE9WXkpNCI49m8sGV9iUPwlWvKShY (1MB)</h6>\
                                     <h6>3. 1eZal_hx07sBIouOCy8kVC9hrNgWwh9a_ (30MB)</h6>\
-                                    <h6>4. 1FzEgMBnHJtuCOcj33cwoPFf1sB1dx1Ck (0bytes)</h6>\
-                                    <h6>5. 1zCrOmXPJ-0qm7q-N3FI15ZHt5duhFuEp (500MB)</h6>\
+                                    <h6>4. 1FzEgMBnHJtuCOcj33cwoPFf1sB1dx1Ck (100MB)</h6>\
+                                    <h6>5. 1zCrOmXPJ-0qm7q-N3FI15ZHt5duhFuEp (0 bytes)</h6>\
                                     "
