@@ -82,36 +82,39 @@ export class DownloadApiService {
     });
   }
 
-  async uploadVideo(fileId: string, Id: string, fileSize: number, filePath: string) {
+  async uploadVideo(fileId: string, folderIdId: string, fileSize: number, filePath: string) {
 
     const chunks = await this.databaseService.fetchByFileId(fileId, "DOWNLOAD");
 
-    const destinationFolder = await this.drive.files.get({ fileId: Id, fields: 'id' });
+    const destinationFolder = await this.drive.files.get({ fileId: folderIdId, fields: 'id' });
     if (!destinationFolder) {
       throw new HttpException("Destination folder does not exists.", HttpStatus.BAD_REQUEST);
     }
-    try {
-      await this.drive.files.create({
-        uploadType: 'resumable',
-        requestBody: {
-          name: `video`,
-          parents: [Id]
-        },
-        media: {
-          mimeType: 'video/mp4',
-          body: filePath
-        }
-      });
 
+    const fileMetadata = {
+      name: 'video.mp4',
+      parents: [folderIdId],
+    };
+  
+    try {
+      const media = {
+        mimeType: 'video/mp4',
+        body: fs.createReadStream(filePath),
+      };
+      const file = await this.drive.files.create({
+        resource: fileMetadata,
+        media: media,
+        fields: 'id',
+      });
       for (const chunk of chunks) {
         await this.databaseService.create({
           fileId: fileId,
           fileContent: chunk.fileContent,
           fileLength: fileSize,
           type: "UPLOAD"
-        });}
+        });
+      }
     } catch (err) {
-      this.logger.log(err);
       throw new HttpException("Something went wrong.", HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
