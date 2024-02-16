@@ -3,7 +3,7 @@
 📝 Introduction
 ------------
 
-Google Drive Video Download & Upload APIs enable seamless integration for retrieving and uploading video content to Google Drive, enhancing application capabilities.
+Google Drive Video Download & Upload APIs enable seamless integration for retrieving and uploading video content to Google Drive, enhancing application capabilities. Download and Upload of video happens through a single API.
 
 This project provides APIs to interact with Google Drive for downloading and uploading video files. It simplifies the process of integrating Google Drive functionality into applications, allowing users to access and manage their video content stored on Google Drive.
 
