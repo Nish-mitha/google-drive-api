@@ -16,12 +16,12 @@ export class DownloadStatusService {
         }
       }
 
-      const contentLength = data[0].fileLength;
-      const percentage = Math.ceil((100/((contentLength / (1024 * 1024))/ 10)));
+      let megaBytes = data[0].fileLength / (1024 * 1024);
+      let percentage = Math.min(100, (count * 20) /  megaBytes * 100);
 
       return {
         statusCode: HttpStatus.OK,
-        message: `${percentage.toString().slice(0,2)}% download is completed for ${fileId}.`,
+        message: `${percentage}% download is completed for ${fileId}.`,
       }
     } catch(err) {
       throw new HttpException("Something went wrong, Please check your network.", HttpStatus.INTERNAL_SERVER_ERROR);
