@@ -25,7 +25,7 @@ export class UploadStatusService {
       }
 
       let megaBytes = data[0].fileLength / (1024 * 1024);
-      let percentage = Math.min(100, (count * 20) /  megaBytes * 100);
+      let percentage = Math.min(100, (count * 10) /  megaBytes * 100);
 
       return {
         statusCode: HttpStatus.OK,

@@ -8,7 +8,7 @@ import { DatabaseService } from 'src/database/database.service';
 export class DownloadApiService {
 
   private readonly logger = new Logger(DownloadApiService.name);
-  private readonly chunkSize = 20 * 1024 * 1024;
+  private readonly chunkSize = 10 * 1024 * 1024;
   private readonly drive;
 
   constructor(private readonly googleDriveService: GoogleDriveService, private readonly databaseService: DatabaseService) {
